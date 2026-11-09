@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Prototipo de confirmación de reposición para un establecimiento.">
+  <title>Tu propuesta de reposición · Damm</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="cliente">
+  <svg width="0" height="0" aria-hidden="true" style="position:absolute">
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 6h11v11H3Zm11 4h4l3 3v4h-7Z"/><circle cx="7" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.5 9.8 9.8 0 0 1-4-.9L3 21l1.6-4.6A8.5 8.5 0 1 1 21 11.5Z"/></symbol>
+  </svg>
+
+  <main class="consumer-page">
+    <nav class="consumer-nav" aria-label="Cabecera">
+      <div class="brand-mark"><span class="brand-dot">D</span><span>Damm</span></div>
+      <div class="secure"><svg class="icon"><use href="#i-lock"/></svg><span>Propuesta privada · Sants Beer</span></div>
+    </nav>
+
+    <div class="order-layout">
+      <section class="order-card">
+        <header class="order-hero">
+          <p class="eyebrow">Reposición sugerida</p>
+          <h1>Que no te falte lo de siempre.</h1>
+          <p class="lead">Hemos preparado una propuesta a partir de tu consumo habitual. Revísala, ajusta las cantidades y confirma cuando quieras.</p>
+          <div class="delivery-strip">
+            <div class="delivery-item"><span class="delivery-icon"><svg class="icon"><use href="#i-truck"/></svg></span><span>Entrega estimada<br><b>Miércoles, 11 nov.</b></span></div>
+            <div class="delivery-item"><span class="delivery-icon"><svg class="icon"><use href="#i-calendar"/></svg></span><span>Próxima reposición<br><b>En 7 días</b></span></div>
+          </div>
+        </header>
+
+        <div class="order-products">
+          <div class="product-row" data-price="294.02" data-liters="253.13">
+            <div class="product-art">ED11</div>
+            <div><h2>Material ED11TC13</h2><p>Formato habitual · 600 unidades por bulto</p></div>
+            <div class="stepper" aria-label="Cantidad de ED11TC13"><button type="button" data-step="-1" aria-label="Restar">−</button><output>1</output><button type="button" data-step="1" aria-label="Sumar">+</button></div>
+          </div>
+          <div class="product-row" data-price="61.66" data-liters="47.37">
+            <div class="product-art">ED13</div>
+            <div><h2>Material ED13</h2><p>Tu media semanal · 6 unidades</p></div>
+            <div class="stepper" aria-label="Cantidad de ED13"><button type="button" data-step="-1" aria-label="Restar">−</button><output>1</output><button type="button" data-step="1" aria-label="Sumar">+</button></div>
+          </div>
+          <div class="product-row" data-price="97.95" data-liters="95.19">
+            <div class="product-art">TU30</div>
+            <div><h2>Material TU30</h2><p>Tu media semanal · 3 unidades</p></div>
+            <div class="stepper" aria-label="Cantidad de TU30"><button type="button" data-step="-1" aria-label="Restar">−</button><output>1</output><button type="button" data-step="1" aria-label="Sumar">+</button></div>
+          </div>
+          <div class="product-row" data-price="56.37" data-liters="66.31">
+            <div class="product-art">VE12</div>
+            <div><h2>Material VE12SP</h2><p>Tu media semanal · 10 unidades</p></div>
+            <div class="stepper" aria-label="Cantidad de VE12SP"><button type="button" data-step="-1" aria-label="Restar">−</button><output>1</output><button type="button" data-step="1" aria-label="Sumar">+</button></div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="summary-card">
+        <p class="eyebrow">Resumen</p>
+        <h2>Tu propuesta</h2>
+        <div class="summary-line"><span>Productos</span><strong id="summary-products">4</strong></div>
+        <div class="summary-line"><span>Volumen estimado</span><strong id="summary-liters">462 L</strong></div>
+        <div class="summary-line"><span>Entrega</span><strong>Sin coste</strong></div>
+        <div class="summary-total"><span>Total estimado</span><strong id="summary-total">510,00 €</strong></div>
+        <button class="button whatsapp-button" id="confirm-order" type="button"><svg class="icon"><use href="#i-message"/></svg>Confirmar por WhatsApp</button>
+        <button class="button ghost" id="postpone-order" type="button">Ahora no · Recordármelo después</button>
+        <p class="summary-fine">No se crea ningún pedido definitivo sin la validación del distribuidor. Podrás confirmar el detalle por WhatsApp.</p>
+        <div class="why-box"><strong>¿Por qué esta propuesta?</strong><p>Tu histórico muestra una compra semanal estable. Hemos usado tus cantidades habituales y puedes modificarlas antes de confirmar.</p></div>
+      </aside>
+    </div>
+  </main>
+
+  <div class="modal" id="order-modal" role="dialog" aria-modal="true" aria-labelledby="order-title">
+    <div class="modal-card">
+      <p class="eyebrow">Todo listo</p>
+      <h2 id="order-title">Abriremos WhatsApp</h2>
+      <p>Enviaremos el resumen para que confirmes la propuesta con tu distribuidor. Esta acción quedará vinculada a la recomendación.</p>
+      <div class="modal-actions"><button class="button secondary" type="button" data-close-modal>Seguir revisando</button><button class="button whatsapp-button" type="button" id="finish-order">Continuar</button></div>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status">Te lo recordaremos dentro de 48 horas.</div>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Prototipo de preventa para el piloto de reposición predictiva.">
+  <title>Preventa · Reposición inteligente</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="preventa">
+  <svg width="0" height="0" aria-hidden="true" style="position:absolute">
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3 1.7 5.3L19 10l-5.3 1.7L12 17l-1.7-5.3L5 10l5.3-1.7Z"/><path d="m19 16 .8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8Z"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.5 9.8 9.8 0 0 1-4-.9L3 21l1.6-4.6A8.5 8.5 0 1 1 21 11.5Z"/></symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24"><path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L20 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="17" cy="20" r="1"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10m6 10V4m6 16v-7m5 7H2"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10h.01"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  </svg>
+
+  <div class="sales-shell">
+    <aside class="sidebar">
+      <div class="brand-mark"><span class="brand-dot">D</span><span>Damm Smart</span></div>
+      <nav class="nav-group" aria-label="Navegación principal">
+        <a class="nav-link" href="#"><svg class="icon"><use href="#i-home"/></svg><span>Resumen</span></a>
+        <a class="nav-link active" href="#"><svg class="icon"><use href="#i-spark"/></svg><span>Oportunidades</span><span class="count">18</span></a>
+        <a class="nav-link" href="#"><svg class="icon"><use href="#i-message"/></svg><span>Activaciones</span></a>
+        <a class="nav-link" href="#"><svg class="icon"><use href="#i-cart"/></svg><span>Pedidos</span></a>
+        <a class="nav-link" href="#"><svg class="icon"><use href="#i-chart"/></svg><span>Resultados</span></a>
+      </nav>
+      <div class="pilot-note"><strong>Piloto · Barcelona</strong>Predicciones simuladas con datos de 2025. Todo envío requiere validación.</div>
+    </aside>
+
+    <main class="sales-main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Lunes, 9 de noviembre</p>
+          <h1>Buenos días, Marta</h1>
+        </div>
+        <div class="profile">
+          <div><strong style="display:block;font-size:13px">Marta Serra</strong><span class="muted small">Preventa Barcelona</span></div>
+          <span class="avatar">MS</span>
+        </div>
+      </header>
+
+      <section class="kpi-grid" aria-label="Indicadores de la jornada">
+        <article class="kpi"><div class="kpi-label"><span>Para revisar hoy</span><svg class="icon"><use href="#i-spark"/></svg></div><strong>18</strong><em>6 con confianza alta</em></article>
+        <article class="kpi"><div class="kpi-label"><span>Volumen sugerido</span><svg class="icon"><use href="#i-cart"/></svg></div><strong>1.248 L</strong><em>+8,2 % vs. semana media</em></article>
+        <article class="kpi"><div class="kpi-label"><span>Propuestas aceptadas</span><svg class="icon"><use href="#i-message"/></svg></div><strong>64 %</strong><em>12 de las últimas 19</em></article>
+        <article class="kpi"><div class="kpi-label"><span>Venta potencial</span><svg class="icon"><use href="#i-chart"/></svg></div><strong>2.460 €</strong><em>Estimación del piloto</em></article>
+      </section>
+
+      <section class="workbench">
+        <div class="panel">
+          <div class="panel-head">
+            <div><h2>Oportunidades de reposición</h2><span class="muted small">Ordenadas por urgencia y confianza</span></div>
+            <div class="filters">
+              <select class="filter" id="confidence-filter" aria-label="Filtrar por confianza">
+                <option value="all">Toda confianza</option>
+                <option value="high">Alta</option>
+                <option value="medium">Media</option>
+              </select>
+              <button class="filter" type="button" id="search-button"><svg class="icon" style="width:15px;height:15px"><use href="#i-search"/></svg></button>
+            </div>
+          </div>
+          <div class="customer-list" id="customer-list">
+            <button class="customer active" type="button" data-confidence="high" data-name="Sants Beer" data-type="Bar tradicional · Oro" data-zone="Zona Franca · Sants" data-date="Hoy" data-liters="462 L" data-value="510 €" data-score="92" data-product="ED11TC13" data-units="600 ud.">
+              <div><h3>Sants Beer</h3><p>Bar tradicional · Barcelona</p></div>
+              <div><span class="metric-label">Reposición</span><span class="metric-value">Hoy</span></div>
+              <div><span class="metric-label">Confianza</span><span class="pill good"><span class="dot"></span>92 %</span></div>
+              <svg class="icon chevron"><use href="#i-chevron"/></svg>
+            </button>
+            <button class="customer" type="button" data-confidence="high" data-name="Reial Club de Polo" data-type="Restaurante carta · Oro" data-zone="Les Corts · Sarrià" data-date="Mañana" data-liters="751 L" data-value="782 €" data-score="89" data-product="ED50" data-units="4 ud.">
+              <div><h3>Reial Club de Polo</h3><p>Restaurante carta · Barcelona</p></div>
+              <div><span class="metric-label">Reposición</span><span class="metric-value">Mañana</span></div>
+              <div><span class="metric-label">Confianza</span><span class="pill good"><span class="dot"></span>89 %</span></div>
+              <svg class="icon chevron"><use href="#i-chevron"/></svg>
+            </button>
+            <button class="customer" type="button" data-confidence="high" data-name="Mirablau" data-type="Restaurante carta · Oro" data-zone="Bonanova · Vallcarca" data-date="En 2 días" data-liters="326 L" data-value="354 €" data-score="87" data-product="VE12SP" data-units="8 ud.">
+              <div><h3>Mirablau</h3><p>Restaurante carta · Barcelona</p></div>
+              <div><span class="metric-label">Reposición</span><span class="metric-value">En 2 días</span></div>
+              <div><span class="metric-label">Confianza</span><span class="pill good"><span class="dot"></span>87 %</span></div>
+              <svg class="icon chevron"><use href="#i-chevron"/></svg>
+            </button>
+            <button class="customer" type="button" data-confidence="medium" data-name="Bar Restaurant Ateneu Unió" data-type="Restaurante menú · Plata" data-zone="Sant Boi" data-date="En 3 días" data-liters="194 L" data-value="318 €" data-score="74" data-product="ED13" data-units="11 ud.">
+              <div><h3>Bar Restaurant Ateneu Unió</h3><p>Restaurante menú · Santa Coloma</p></div>
+              <div><span class="metric-label">Reposición</span><span class="metric-value">En 3 días</span></div>
+              <div><span class="metric-label">Confianza</span><span class="pill warn"><span class="dot"></span>74 %</span></div>
+              <svg class="icon chevron"><use href="#i-chevron"/></svg>
+            </button>
+            <button class="customer" type="button" data-confidence="medium" data-name="Chalo Tapas" data-type="Bar de tapas · Oro" data-zone="Gavà · Castelldefels" data-date="En 4 días" data-liters="168 L" data-value="206 €" data-score="69" data-product="FDT13" data-units="2 ud.">
+              <div><h3>Chalo Tapas</h3><p>Bar de tapas · Castelldefels</p></div>
+              <div><span class="metric-label">Reposición</span><span class="metric-value">En 4 días</span></div>
+              <div><span class="metric-label">Confianza</span><span class="pill warn"><span class="dot"></span>69 %</span></div>
+              <svg class="icon chevron"><use href="#i-chevron"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <aside class="panel detail" aria-live="polite">
+          <div class="detail-cover"><span class="pill"><span class="dot"></span>Confianza alta</span></div>
+          <div class="detail-body">
+            <p class="eyebrow">Propuesta prioritaria</p>
+            <h2 id="detail-name">Sants Beer</h2>
+            <p class="detail-meta" id="detail-meta">Bar tradicional · Oro<br>Zona Franca · Sants</p>
+            <div class="forecast">
+              <div><span class="metric-label">Fecha prevista</span><strong id="detail-date">Hoy</strong></div>
+              <div><span class="metric-label">Venta potencial</span><strong id="detail-value">510 €</strong></div>
+            </div>
+            <span class="metric-label">Confianza del modelo · <b id="detail-score">92 %</b></span>
+            <div class="confidence"><span id="confidence-bar"></span></div>
+            <div class="product-mini">
+              <span class="product-code" id="detail-code">ED11</span>
+              <div><strong>Material <span id="detail-product">ED11TC13</span></strong><span><span id="detail-units">600 ud.</span> · <span id="detail-liters">462 L</span> previstos</span></div>
+            </div>
+            <div class="product-mini">
+              <span class="product-code">+4</span>
+              <div><strong>Otros habituales</strong><span>ED13, DL30, TU30 y VE12SP</span></div>
+            </div>
+            <div class="detail-actions">
+              <button class="button" type="button" id="send-proposal"><svg class="icon"><use href="#i-send"/></svg>Preparar WhatsApp</button>
+              <button class="button secondary" type="button" id="review-detail">Revisar propuesta</button>
+            </div>
+            <div class="model-note"><svg class="icon"><use href="#i-info"/></svg><span>Basado en 52 semanas activas y una cadencia semanal estable. La cantidad es editable antes del envío.</span></div>
+          </div>
+        </aside>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal" id="proposal-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <p class="eyebrow">Vista previa</p>
+      <h2 id="modal-title">Propuesta para WhatsApp</h2>
+      <p id="modal-copy">Hola, Sants Beer. Según vuestro ritmo habitual, os proponemos reponer 600 ud. de ED11TC13. Podéis confirmar, modificar o posponer en un clic.</p>
+      <div class="modal-actions"><button class="button secondary" type="button" data-close-modal>Volver</button><button class="button" type="button" id="confirm-send">Enviar propuesta</button></div>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status">Propuesta enviada y registrada para trazabilidad.</div>
+  <script src="app.js"></script>
+</body>
+</html>
