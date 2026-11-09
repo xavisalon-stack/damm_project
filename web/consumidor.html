@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Experiencia visual para descubrir las marcas Damm y las tendencias de consumo.">
+  <title>Damm · Descubre tu cerveza</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body data-page="consumidor">
+  <nav class="nav">
+    <div class="shell nav-inner">
+      <a class="brand" href="index.html"><span class="brand-mark">D</span><span>Damm · Descubre</span></a>
+      <div class="nav-links">
+        <a href="preventa.html">Preventa</a>
+        <a class="active" href="consumidor.html">Consumidor</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero consumer-hero">
+    <div class="shell hero-inner">
+      <div>
+        <div class="eyebrow">Momentos para compartir</div>
+        <h1>Hay una Damm para cada momento.</h1>
+        <p>Explora las referencias que más conectan con el mercado y descubre nuevos sabores a partir de las tendencias de consumo.</p>
+      </div>
+      <aside class="hero-aside">
+        <strong>+140 años</strong>
+        <span>creando cervezas mediterráneas, con carácter propio y vocación de reunirnos alrededor de una mesa.</span>
+      </aside>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="shell">
+      <div class="toolbar">
+        <div><h2 class="section-title">Favoritas de la comunidad</h2><div class="section-kicker">Selección basada en volumen e intensidad promocional de la muestra</div></div>
+        <span class="period" id="periodo">—</span>
+      </div>
+
+      <section class="product-grid" id="destacados" aria-label="Marcas destacadas"></section>
+
+      <section class="kpis" style="margin-top:28px" aria-label="Indicadores principales">
+        <article class="kpi"><div class="kpi-label">Volumen Damm</div><div class="kpi-value" id="kpi-litros">—</div><div class="kpi-foot">Litros en la muestra</div></article>
+        <article class="kpi"><div class="kpi-label">Valor de mercado</div><div class="kpi-value" id="kpi-valor">—</div><div class="kpi-foot">Ventas agregadas</div></article>
+        <article class="kpi"><div class="kpi-label">Variedad</div><div class="kpi-value" id="kpi-marcas">—</div><div class="kpi-foot">Marcas Damm representadas</div></article>
+        <article class="kpi"><div class="kpi-label">Precio medio</div><div class="kpi-value" id="kpi-precio">—</div><div class="kpi-foot">Por litro en la muestra</div></article>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <div class="card-head"><div><h3 class="card-title">El ritmo del año</h3><div class="card-sub">Evolución mensual del volumen Damm</div></div><span class="tag">Mercado</span></div>
+          <div class="card-body"><div class="chart" id="consumo-chart"></div></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><div><h3 class="card-title">Cómo la disfrutamos</h3><div class="card-sub">Preferencia por formato</div></div></div>
+          <div class="card-body"><div class="bars" id="formatos"></div></div>
+        </article>
+      </section>
+
+      <section class="grid equal">
+        <article class="card">
+          <div class="card-head"><div><h3 class="card-title">Un sabor para cada ocasión</h3><div class="card-sub">Volumen del mercado por segmento</div></div></div>
+          <div class="card-body"><div class="bars" id="segmentos"></div></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><div><h3 class="card-title">Mediterráneamente</h3><div class="card-sub">Una invitación a descubrir</div></div></div>
+          <div class="card-body">
+            <p style="font:600 26px/1.2 'Playfair Display';color:var(--vino-oscuro);margin:4px 0 16px">Clásica, intensa, fresca o sin alcohol.</p>
+            <p style="color:var(--gris);font-size:13px;line-height:1.7;margin:0">La variedad de la familia Damm permite elegir según el momento. Explora la tabla, compara estilos y encuentra tu próxima favorita.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="card" style="margin-top:16px">
+        <div class="card-head">
+          <div><h3 class="card-title">Explora las marcas</h3><div class="card-sub">Referencias Damm con mayor volumen en la muestra</div></div>
+          <div class="filters" aria-label="Ordenar marcas">
+            <button class="filter active" data-sort="litros">Más elegidas</button>
+            <button class="filter" data-sort="promo">En promoción</button>
+            <button class="filter" data-sort="precio">Precio</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th>Marca</th><th>Volumen</th><th>Valor</th><th>Precio medio</th><th>Actividad</th></tr></thead>
+            <tbody id="marcas-tabla"></tbody>
+          </table>
+        </div>
+      </section>
+      <p class="note">Datos agregados de una muestra Nielsen 2024. Precios y promociones son históricos y no constituyen una oferta comercial vigente. Disfruta con moderación.</p>
+    </div>
+  </main>
+
+  <footer class="footer"><div class="shell"><span>Damm · Disfruta con moderación</span><a href="index.html">Cambiar experiencia ↑</a></div></footer>
+  <script src="datos.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
