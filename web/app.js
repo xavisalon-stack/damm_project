@@ -60,6 +60,13 @@ function initPreventa() {
   document.querySelector("#oportunidades").innerHTML = p.oportunidades.map((o, i) => `
     <tr><td><span class="rank">${i + 1}</span></td><td class="name-cell">${o.nombre}<div class="card-sub">${o.ciudad}</div></td>
     <td><span class="tag">${o.categoria}</span></td><td>${o.tipo}</td><td>${number(o.interior)} + ${number(o.terraza)} terraza</td><td>${o.zona}</td></tr>`).join("");
+  const menu = document.querySelector(".mobile-menu");
+  const sidebar = document.querySelector(".sales-sidebar");
+  menu?.addEventListener("click", () => {
+    const open = sidebar.classList.toggle("mobile-open");
+    menu.setAttribute("aria-expanded", String(open));
+  });
+  sidebar?.querySelectorAll("a").forEach(link => link.addEventListener("click", () => sidebar.classList.remove("mobile-open")));
 }
 
 function renderBrands(rows) {

@@ -3,89 +3,172 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Panel de preventa Damm con indicadores de ventas, cobertura y oportunidades.">
-  <title>Damm · Panel de preventa</title>
+  <meta name="description" content="Cockpit comercial Damm para preparar visitas y priorizar oportunidades.">
+  <title>Damm · Cockpit de preventa</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="preventa.css">
 </head>
-<body data-page="preventa">
-  <nav class="nav">
-    <div class="shell nav-inner">
-      <a class="brand" href="index.html"><span class="brand-mark">D</span><span>Damm · Preventa</span></a>
-      <div class="nav-links">
-        <a class="active" href="preventa.html">Preventa</a>
-        <a href="consumidor.html">Consumidor</a>
+<body class="preventa-app" data-page="preventa">
+  <div class="sales-layout">
+    <aside class="sales-sidebar">
+      <a class="sales-brand" href="index.html">
+        <span class="sales-brand-mark">D</span>
+        <span class="sales-brand-copy"><strong>Damm Sales</strong><span>Commercial OS</span></span>
+      </a>
+
+      <div class="sales-nav-label">Workspace</div>
+      <nav class="sales-nav" aria-label="Secciones del panel">
+        <a class="active" href="#resumen">
+          <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M4 13h6V4H4v9Zm0 7h6v-4H4v4Zm10 0h6v-9h-6v9Zm0-16v4h6V4h-6Z"/></svg></span>
+          <span>Resumen</span>
+        </a>
+        <a href="#rendimiento">
+          <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="m4 17 5-5 3 3 7-8"/><path d="M14 7h5v5"/></svg></span>
+          <span>Rendimiento</span>
+        </a>
+        <a href="#oportunidades-panel">
+          <span class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 4V2m8 10h2M12 22v-2M2 12h2"/></svg></span>
+          <span>Oportunidades</span>
+        </a>
+        <a href="#clientes">
+          <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M16 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6m3-3h-6"/></svg></span>
+          <span>Clientes</span>
+        </a>
+      </nav>
+
+      <div class="sales-nav-label">Experiencias</div>
+      <nav class="sales-nav">
+        <a href="consumidor.html">
+          <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg></span>
+          <span>Vista consumidor</span>
+        </a>
+        <a href="index.html">
+          <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></span>
+          <span>Volver al inicio</span>
+        </a>
+      </nav>
+
+      <div class="sales-profile">
+        <div class="sales-avatar">CV</div>
+        <div><strong>Canal Ventas</strong><span>Entorno de muestra</span></div>
       </div>
-    </div>
-  </nav>
+    </aside>
 
-  <header class="hero">
-    <div class="shell hero-inner">
-      <div>
-        <div class="eyebrow">Inteligencia comercial</div>
-        <h1>Cada visita empieza con una oportunidad.</h1>
-        <p>Una lectura ejecutiva de ventas, margen y cobertura para priorizar clientes y orientar la conversación comercial.</p>
-      </div>
-      <aside class="hero-aside">
-        <strong id="cobertura">—</strong>
-        <span>de los establecimientos de la muestra cuentan con Bar Manager. La digitalización es una palanca clara de crecimiento.</span>
-      </aside>
-    </div>
-  </header>
-
-  <main class="main">
-    <div class="shell">
-      <div class="toolbar">
-        <div><h2 class="section-title">Pulso del negocio</h2><div class="section-kicker">Indicadores agregados de la muestra comercial</div></div>
-        <span class="period" id="periodo">—</span>
-      </div>
-
-      <section class="kpis" aria-label="Indicadores principales">
-        <article class="kpi"><div class="kpi-label">Venta neta</div><div class="kpi-value" id="kpi-venta">—</div><div class="kpi-foot">Facturación agregada</div></article>
-        <article class="kpi"><div class="kpi-label">Margen</div><div class="kpi-value" id="kpi-margen">—</div><div class="kpi-foot">Contribución comercial</div></article>
-        <article class="kpi"><div class="kpi-label">Volumen</div><div class="kpi-value" id="kpi-litros">—</div><div class="kpi-foot">Litros servidos</div></article>
-        <article class="kpi"><div class="kpi-label">Puntos de venta</div><div class="kpi-value" id="kpi-puntos">—</div><div class="kpi-foot">Establecimientos activos</div></article>
-      </section>
-
-      <section class="grid">
-        <article class="card">
-          <div class="card-head"><div><h3 class="card-title">Evolución de venta</h3><div class="card-sub">Venta neta mensual</div></div><span class="tag">2025</span></div>
-          <div class="card-body"><div class="chart" id="ventas-chart"></div></div>
-        </article>
-        <article class="card">
-          <div class="card-head"><div><h3 class="card-title">Materiales que lideran</h3><div class="card-sub">Top por venta neta</div></div></div>
-          <div class="card-body"><div class="bars" id="materiales"></div></div>
-        </article>
-      </section>
-
-      <section class="grid equal">
-        <article class="card">
-          <div class="card-head"><div><h3 class="card-title">Mix de establecimientos</h3><div class="card-sub">Cuentas abiertas por tipología</div></div></div>
-          <div class="card-body"><div class="bars" id="tipos"></div></div>
-        </article>
-        <article class="card">
-          <div class="card-head"><div><h3 class="card-title">Próxima mejor acción</h3><div class="card-sub">Lectura sugerida para la visita</div></div></div>
-          <div class="card-body">
-            <p style="font:600 25px/1.25 'Playfair Display';color:var(--vino-oscuro);margin:4px 0 16px">Activa el potencial de los locales con mayor capacidad.</p>
-            <p style="color:var(--gris);font-size:13px;line-height:1.7;margin:0">Prioriza establecimientos abiertos sin Bar Manager, valida su surtido y adapta la propuesta al espacio interior y de terraza.</p>
-          </div>
-        </article>
-      </section>
-
-      <section class="card" style="margin-top:16px">
-        <div class="card-head"><div><h3 class="card-title">Oportunidades priorizadas</h3><div class="card-sub">Locales abiertos, sin Bar Manager y con mayor capacidad declarada</div></div><span class="tag">Siguiente visita</span></div>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>#</th><th>Establecimiento</th><th>Categoría</th><th>Tipología</th><th>Capacidad</th><th>Zona comercial</th></tr></thead>
-            <tbody id="oportunidades"></tbody>
-          </table>
+    <div class="sales-content">
+      <header class="sales-topbar">
+        <button class="mobile-menu" aria-label="Menú" aria-expanded="false">☰</button>
+        <div class="topbar-context">Preventa <span> / </span> <strong>Visión general</strong></div>
+        <div class="topbar-actions">
+          <span class="live-pill">Datos actualizados</span>
+          <a class="topbar-link" href="consumidor.html">Vista consumidor ↗</a>
         </div>
-      </section>
-      <p class="note">Visualización construida con datos de muestra. Las recomendaciones son orientativas y no representan actividad en tiempo real.</p>
-    </div>
-  </main>
+      </header>
 
-  <footer class="footer"><div class="shell"><span>Damm · Herramienta de apoyo a preventa</span><a href="index.html">Cambiar experiencia ↑</a></div></footer>
+      <main class="sales-main">
+        <section class="sales-hero" id="resumen">
+          <article class="sales-welcome">
+            <div class="welcome-kicker">Cockpit comercial · Barcelona</div>
+            <h1>Convierte cada visita en una decisión inteligente.</h1>
+            <p>Prioriza clientes, detecta palancas de crecimiento y llega a cada punto de venta con una conversación relevante.</p>
+            <div class="welcome-actions">
+              <a class="primary-action" href="#oportunidades-panel">Ver oportunidades <span>→</span></a>
+              <a class="ghost-action" href="#rendimiento">Explorar rendimiento</a>
+            </div>
+          </article>
+
+          <article class="coverage-card">
+            <div class="coverage-top"><span>Cobertura digital</span><span class="trend-chip">Potencial alto</span></div>
+            <div class="coverage-value" id="cobertura">—</div>
+            <div class="coverage-track"><span></span></div>
+            <p>Establecimientos con Bar Manager. La base restante representa una oportunidad directa de activación digital.</p>
+          </article>
+        </section>
+
+        <section id="rendimiento">
+          <div class="sales-section-head">
+            <div><h2>Pulso del negocio</h2><p>Indicadores agregados para orientar la acción comercial</p></div>
+            <span class="sales-period" id="periodo">—</span>
+          </div>
+
+          <div class="sales-kpis" aria-label="Indicadores principales">
+            <article class="sales-kpi">
+              <div class="kpi-top"><span class="kpi-label">Venta neta</span><span class="kpi-mini-icon">€</span></div>
+              <div class="kpi-value" id="kpi-venta">—</div>
+              <div class="kpi-foot"><b>↗ Negocio</b><span>facturación agregada</span></div>
+            </article>
+            <article class="sales-kpi">
+              <div class="kpi-top"><span class="kpi-label">Margen</span><span class="kpi-mini-icon">↗</span></div>
+              <div class="kpi-value" id="kpi-margen">—</div>
+              <div class="kpi-foot"><b>Contribución</b><span>comercial acumulada</span></div>
+            </article>
+            <article class="sales-kpi">
+              <div class="kpi-top"><span class="kpi-label">Volumen</span><span class="kpi-mini-icon">L</span></div>
+              <div class="kpi-value" id="kpi-litros">—</div>
+              <div class="kpi-foot"><b>Litros</b><span>servidos en el periodo</span></div>
+            </article>
+            <article class="sales-kpi">
+              <div class="kpi-top"><span class="kpi-label">Puntos de venta</span><span class="kpi-mini-icon">⌖</span></div>
+              <div class="kpi-value" id="kpi-puntos">—</div>
+              <div class="kpi-foot"><b>Cobertura</b><span>establecimientos activos</span></div>
+            </article>
+          </div>
+
+          <div class="sales-grid">
+            <article class="sales-card">
+              <div class="sales-card-head">
+                <div><h3 class="sales-card-title">Evolución de venta</h3><div class="sales-card-sub">Comportamiento mensual de la venta neta</div></div>
+                <span class="tag">12 meses</span>
+              </div>
+              <div class="sales-card-body"><div class="chart" id="ventas-chart"></div></div>
+            </article>
+            <article class="sales-card">
+              <div class="sales-card-head">
+                <div><h3 class="sales-card-title">Top materiales</h3><div class="sales-card-sub">Referencias que más facturación aportan</div></div>
+              </div>
+              <div class="sales-card-body"><div class="bars" id="materiales"></div></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="sales-grid equal" id="clientes">
+          <article class="sales-card">
+            <div class="sales-card-head">
+              <div><h3 class="sales-card-title">Mix de establecimientos</h3><div class="sales-card-sub">Cuentas abiertas por tipología</div></div>
+              <span class="tag">Portfolio</span>
+            </div>
+            <div class="sales-card-body"><div class="bars" id="tipos"></div></div>
+          </article>
+          <article class="sales-card action-card">
+            <div class="sales-card-head">
+              <div><h3 class="sales-card-title">Próxima mejor acción</h3><div class="sales-card-sub">Recomendación para preparar la ruta</div></div>
+            </div>
+            <div class="sales-card-body action-copy">
+              <strong>Activa los locales con mayor capacidad y baja adopción digital.</strong>
+              <p>Valida surtido, adapta la propuesta al espacio interior y de terraza, y presenta Bar Manager como palanca de crecimiento.</p>
+              <a class="action-link" href="#oportunidades-panel">Abrir lista priorizada →</a>
+            </div>
+          </article>
+        </section>
+
+        <section class="sales-card opportunities" id="oportunidades-panel">
+          <div class="sales-card-head">
+            <div><h3 class="sales-card-title">Oportunidades priorizadas</h3><div class="sales-card-sub">Locales abiertos, sin Bar Manager y con mayor capacidad declarada</div></div>
+            <span class="tag">Siguiente visita</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Prioridad</th><th>Establecimiento</th><th>Categoría</th><th>Tipología</th><th>Capacidad</th><th>Zona comercial</th></tr></thead>
+              <tbody id="oportunidades"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <p class="sales-note">Visualización construida con datos de muestra. Las recomendaciones son orientativas y no representan actividad en tiempo real.</p>
+      </main>
+    </div>
+  </div>
+
   <script src="datos.js"></script>
   <script src="app.js"></script>
 </body>
