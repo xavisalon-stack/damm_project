@@ -1,0 +1,6 @@
+__pycache__/
+.pytest_cache/
+*.py[cod]
+
+# Informes EDA generados localmente; los Excel originales sí están versionados.
+eda/
